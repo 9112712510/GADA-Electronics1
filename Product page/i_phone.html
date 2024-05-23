@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iphone-13</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="styleshhet" href="style2.css">
+    <style>
+       .b{
+        width: 90px;
+
+        margin-left: 40px;
+       }
+       .c{
+        width: 70px;
+        margin-left: 55px;
+       }
+       .e{
+        width: 100px;
+        margin-left: 30px;
+       }
+       .d{
+        width: 70px;
+        margin-left: 55px;
+       }
+       .g{
+        margin-left: 80px;
+        margin-top: 60px;
+       }
+      
+.container{
+    width: 100%;
+}
+
+.wrapper{
+    width: 90%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.text{
+    flex-basis: 25%;
+}
+
+.all-images{
+    height: 80vh;
+    display: flex;
+}
+.small-images{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.small-images img{
+    height: 19vh;
+    margin-bottom: 9px;
+    cursor: pointer;
+    
+}
+p{
+    margin-bottom: 20px;
+}
+.brand{
+    background-color: #008000;
+    width:fit-content;
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 5px;
+
+}
+h2{
+    font-size: 35px;
+    color: #555;
+    margin-bottom: 20px;
+}
+.review{
+    background-color: #008000;
+    display: inline-block;
+    color: #fff;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.review .fa{
+    color:#fff;
+}
+.price{
+    color:rgb(29, 28, 28);
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+.price-box{
+    display: flex;
+    align-items: center;
+}
+input{
+    width: 30px;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    text-align: center;
+}
+button{
+    width: 130px;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #fe980f;
+}
+
+button .fa{
+    margin-right:10px;
+}
+.buy{
+    background-color: rgb(201,97, 57);
+}
+@media only screen and (max-width:1200px){
+    .wrapper{
+        flex-direction: column;
+        height: auto;
+        padding: 5% 0;
+    }
+
+    .text{
+        padding-top:50px ;
+
+    }
+}
+
+@media only screen and (max-width:600px){
+      .all-images{
+        flex-direction: column;
+        height: auto;
+      }
+      .small-images{
+        flex-direction: row;
+        justify-content: space-evenly;
+        order: 1;
+
+      }
+
+      .price-box{
+        width: 100%;
+      }
+
+      .main-images img{
+        width:100%
+      }
+
+      .small-images img{
+        width: 25%;
+
+      }
+      h2{
+        font-size: 25px;
+      }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="product-box">
+                <div class="all-images">
+                <div class="small-images">
+                   
+                
+                 <img class="b" src="iphone.jpg"    onclick="clickimg(this)">
+                 <img class="c" src="iphone15b.webp"  onclick="clickimg(this)">
+                 <img class="d" src="iphone15fr.webp" onclick="clickimg(this)">
+                 <img class="e" src="iphone15s.jpg"   onclick="clickimg(this)">
+                
+                </div>
+                <div class="main-images">
+                    <img class="g" src="iphone.jpg" id="imagebox">
+                </div>
+            </div>
+            </div>
+
+            <div class="text">
+                <div class="content">
+                    <p class="brand">Brand : Apple</p>
+                    <h2>Apple iPhone 15 (Blue, 128 GB)</h2>
+                    <div class="review">
+                        <span>(4.6)</span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <div class="price-box">
+                        <p class="price">&#8377; 77,900</p>
+                        <strike>&#8377; 89,900</strike>
+                    </div>
+                    <p>size : <select name="size">
+                        <option value="select color">select color</option>
+                        <option value="black">black</option>
+                        <option value="blue">blue</option>
+                        <option value="pink">pink</option>
+                    </select></p>
+
+                    <p>Quantity : <input type="text" value="1"></p>
+                    <button>
+                        <span class="fa fa-shopping-cart"></span>
+                        Add to Cart
+                    </button>
+                    <button class="buy">
+                        <span class="fa fa-shopping-cart"></span>
+                        Buy now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+
+    function clickimg(smallImg){
+        var fullImg= document.getElementById("imagebox");
+        fullImg.src = smallImg.src
+
+    }
+</script>
+    
+</body>
+</html>
