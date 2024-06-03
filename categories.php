@@ -35,7 +35,7 @@ include('functions/userfunctions.php');
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html" id="logo"><span id="span1">E</span>Lectronic <span>Shop</span></a>
+          <a class="navbar-brand" href="index.php" id="logo"><span id="span1">E</span>Lectronic <span>Shop</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><img src="./images/menu.png" alt="" width="30px"></span>
           </button>
@@ -45,7 +45,7 @@ include('functions/userfunctions.php');
                 <a class="nav-link active" aria-current="page" href="index1.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Product</a>
+                <a class="nav-link" href="trending_products.php">Product</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="categories.php">Collections</a>
@@ -57,6 +57,24 @@ include('functions/userfunctions.php');
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
+              <?php
+              if(isset($_SESSION['auth']))
+              {
+                ?>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
+                  <?= $_SESSION['auth_user']['full_name'];  ?>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="my-orders.php">view orders</a></li>
+                    <li><a class="dropdown-item" href="#">Another Action</a></li>
+                    <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                  </ul>
+                </li>
+                <?php
+              }
+?>
+
             </ul>
             <form class="d-flex" id="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -205,6 +223,6 @@ include('functions/userfunctions.php');
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <script src="assets/js/custom.js"></script>
 </body>
 </html>

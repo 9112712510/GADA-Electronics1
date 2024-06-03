@@ -57,14 +57,30 @@ session_start();
                 $price = $citem['selling_price'];
                 $insert_items_query = "INSERT INTO order_items (order_id, prod_id, qty, price) VALUES ('$order_id', '$prod_id', '$prod_qty', '$price')";
                 $insert_items_query_run = mysqli_query($conn, $insert_items_query);
+
+
+                $product_query = "SELECT * FROM products WHERE id='$prod_id' LIMIT 1";
+                $product_query_run = mysqli_query($conn, $product_query);
+
+                $productData = mysqli_fetch_array($product_query_run);
+                $current_qty = $productData['qty'];
+
+                $new_qty = $current_qty - $prod_qty;
+
+                $updateQty_query = "UPDATE products SET qty='$new_qty' WHERE id='$prod_id'";
+                $updateQty_query_run = mysqli_query($conn, $updateQty_query);
             }
 
             $deleteCartQuery = "DELETE FROM carts WHERE user_id='$userId'";
             $deleteCartQuery_run = mysqli_query($conn, $deleteCartQuery);
 
+            if($payment_mode == "COD"){
             $_SESSION['message'] = "Orders placed successfully";
             header('Location: ../my-orders.php');
             die();
+            }else{
+                echo 201;
+            }
         }
     }
  }

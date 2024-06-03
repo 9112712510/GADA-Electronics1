@@ -8,6 +8,15 @@ function getAllActive($table)
  $query = "SELECT * FROM $table WHERE status='0'";
  return $query_run= mysqli_query($conn, $query);
 }
+
+function getAllTrending()
+{
+ global $conn;
+ $query = "SELECT * FROM products WHERE trending='1'";
+ return $query_run= mysqli_query($conn, $query);
+}
+
+
 function getSlugActive($table, $slug)
 {
  global $conn;
@@ -40,10 +49,28 @@ function getCartItems()
     return $query_run = mysqli_query($conn, $query);
 }
 
+function getOrders()
+{
+    global $conn;
+    $userId = $_SESSION['auth_user']['user_id'];
+
+    $query = "SELECT * FROM orders WHERE user_id='$userId' ORDER BY id DESC";
+    return $query_run = mysqli_query($conn, $query);
+}
+
 function redirect($url, $message){
     $_SESSION['message'] = $message;
     header('Location:'.$url);
     exit(0);
+ }
+
+ function checkTrackingNoValid($trackingNO)
+ {
+    global $conn;
+    $userId = $_SESSION['auth_user']['user_id'];
+
+    $query = "SELECT * FROM orders WHERE tracking_no='$trackingNO' AND user_id='$userId'";
+    return mysqli_query($conn, $query);
  }
 
 ?>

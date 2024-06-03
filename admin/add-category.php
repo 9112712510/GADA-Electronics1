@@ -1,7 +1,4 @@
 <?php
-
-
-
  include('includes/hearder.php');
  include('../middleware/adminMiddleware.php');
 ?>

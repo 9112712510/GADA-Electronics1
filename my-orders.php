@@ -66,19 +66,23 @@ include('authencticate.php');
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
               <?php
-              if(isset($_SESSION['auth'])){
+              if(isset($_SESSION['auth']))
+              {
                 ?>
-                 <li class="nav-item">
-                <a class="nav-link" href="logout.php">Logout</a>
-              </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
+                  <?= $_SESSION['auth_user']['full_name'];  ?>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="my-orders.php">view orders</a></li>
+                    <li><a class="dropdown-item" href="#">Another Action</a></li>
+                    <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                  </ul>
+                </li>
                 <?php
-
               }
-              else{
+?>
 
-              }
-
-              ?>
             </ul>
             <form class="d-flex" id="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -107,7 +111,47 @@ include('authencticate.php');
     <div class="">
      <div class="row">
       <div class="col-md-12">
-        
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tracking No</th>
+              <th>Price</th>
+              <th>Date</th>
+              <th>View</th>
+            </tr>
+          </thead>
+            <tbody>
+            <?php
+          $orders = getOrders();
+
+          if(mysqli_num_rows($orders) > 0)
+          {
+            foreach($orders as $item){
+              ?>
+                  <tr>
+                    <td><?= $item['id']; ?></td>
+                    <td><?= $item['tracking_no']; ?></td>
+                    <td><?= $item['total_price']; ?></td>
+                    <td><?= $item['created_at']; ?></td>
+                    <td>
+                       <a href="view-order.php?t=<?= $item['tracking_no']; ?>" class="btn btn-primary">View details</a>
+                    </td>
+                  </tr>
+              <?php
+            }
+          }else{
+            ?>
+                 <tr>
+                    <td colspan="5">No orders yet</td>
+                   
+                  </tr>
+
+           <?php
+          }
+        ?>
+            </tbody>
+        </table>
       </div>
      </div>
     </div>

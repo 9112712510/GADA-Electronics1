@@ -76,6 +76,24 @@ if(isset($_GET['product']))
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
+              <?php
+              if(isset($_SESSION['auth']))
+              {
+                ?>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
+                  <?= $_SESSION['auth_user']['full_name'];  ?>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="my-orders.php">view orders</a></li>
+                    <li><a class="dropdown-item" href="#">Another Action</a></li>
+                    <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                  </ul>
+                </li>
+                <?php
+              }
+?>
+
             </ul>
             <form class="d-flex" id="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -123,10 +141,23 @@ if(isset($_GET['product']))
                     <h5>Rs <span class="text-success fw-bold"> <?= $product['selling_price'];?></span></h5>
                 </div>
                 <div class="col-md-6">
-                    <h5>Rs <s class="text-danger"> <?= $product['original_price'];?> </s></h5>
+                    <h5>Rs <span class="text-danger"> <?= $product['original_price'];?> </span></h5>
                 </div>
                
             </div>
+      <?php
+            if($product['qty'] > 0)
+            {
+              ?>
+              <label class="badge bg-success">In stock</label>
+              <?php
+            }
+            else{
+              ?>
+              <label class="badge bg-danger">Out of stock</label>
+              <?php
+            }
+      ?>
 
             <div class="row">
                <div class="col-md-4">
@@ -137,10 +168,17 @@ if(isset($_GET['product']))
                 </div>
                </div>
             </div>
+            
             <div class="row mt-3">
+              <?php
+                if($product['qty'] > 0){
+                  ?>
                 <div class="col-md-6">
                     <button class="btn btn-primary px-4 addToCartBtn" value="<?= $product['id'];?>"><i class="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                 </div>
+                <?php
+                 }
+                 ?>
                 <div class="col-md-6">
                     <button class="btn btn-danger px-4"><i class="fa fa-heart me-2"></i>Add to Wishlist</button>
                 </div>
@@ -178,9 +216,9 @@ else{
         <div class="col-lg-3 col-md-6 footer-contact">
           <h3>Electronic Shop</h3>
           <p>
-            Karachi <br>
-            Sindh <br>
-            Pakistan <br>
+            Pune <br>
+            Mumbai <br>
+            Banglore <br>
           </p>
           <strong>Phone:</strong> +000000000000000 <br>
           <strong>Email:</strong> electronicshop@.com <br>

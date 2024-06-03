@@ -63,8 +63,8 @@ $password=$_POST["password"];
     <div class="top-navbar">
         <p>WELCOME TO OUR SHOP</p>
         <div class="icons">
-            <a href="login.html"><img src="./images/register.png" alt="" width="18px">Login</a>
-            <a href="register.html"><img src="./images/register.png" alt="" width="18px">Register</a>
+            <a href="login.php"><img src="./images/register.png" alt="" width="18px">Login</a>
+            <a href="regis.php"><img src="./images/register.png" alt="" width="18px">Register</a>
         </div>
     </div>
     <!-- top navbar -->
@@ -83,22 +83,6 @@ $password=$_POST["password"];
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Product</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Category
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
-                  <li><a class="dropdown-item" href="#">Samrt Phone</a></li>
-                  <li><a class="dropdown-item" href="#">Mobile Phone</a></li>
-                  <li><a class="dropdown-item" href="#">Cameras</a></li>
-                  <li><a class="dropdown-item" href="#">Fridge</a></li>
-                  <li><a class="dropdown-item" href="#">AC</a></li>
-                  <li><a class="dropdown-item" href="#">Samrt Watch</a></li>
-                  <li><a class="dropdown-item" href="#">Headphone</a></li>
-                  <li><a class="dropdown-item" href="#">Laptop</a></li>
-                  <li><a class="dropdown-item" href="#">PC Moniter</a></li>
-                </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
@@ -202,9 +186,9 @@ $password=$_POST["password"];
             <div class="col-lg-3 col-md-6 footer-contact">
               <h3>Electronic Shop</h3>
               <p>
-                Karachi <br>
-                Sindh <br>
-                Pakistan <br>
+                Pune <br>
+                Mumbai>
+                Banglore <br>
               </p>
               <strong>Phone:</strong> +000000000000000 <br>
               <strong>Email:</strong> electronicshop@.com <br>
